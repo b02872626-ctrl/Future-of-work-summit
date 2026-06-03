@@ -91,8 +91,11 @@ export default function HomePage() {
 
       {/* ─── HERO ─────────────────────────────────────────── */}
       <section className="relative overflow-hidden bg-hero-gradient min-h-screen flex flex-col">
-        <div className="container-page relative z-10 flex-1 flex items-center pt-40 pb-24 md:pt-44 md:pb-32">
-          <h1 className="heading-display text-cream text-[15vw] sm:text-[13vw] md:text-[9vw] lg:text-[8.4vw] leading-[0.95]">
+        <div className="container-page relative z-10 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
+          <h1
+            className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
+            style={{ fontSize: "clamp(2.5rem, 6.6vw, 6.5rem)" }}
+          >
             Shaping how Ethiopia works, hires, builds, and grows.
           </h1>
         </div>
