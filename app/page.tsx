@@ -94,7 +94,7 @@ export default function HomePage() {
         <div className="container-page relative z-10 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
           <h1
             className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
-            style={{ fontSize: "clamp(2.5rem, 9vw, 11rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
           >
             Shaping how<br />
             Ethiopia works,<br />
