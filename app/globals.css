@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Prevent the 3D shard shapes that bleed past section edges from
+       creating a horizontal scrollbar. */
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-ink text-cream font-sans antialiased;
+    overflow-x: clip;
+  }
+  ::selection {
+    @apply bg-magenta text-cream;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1440px] px-8 md:px-16 lg:px-24;
+  }
+
+  /* ============================================================
+     Inline highlight pills — color is contextual:
+       .pill          → plum bg (used inside cream/light sections)
+       .pill-magenta  → magenta bg (used inside dark sections)
+     Both use cream text. The rule comes straight from the design.
+     ============================================================ */
+  .pill {
+    @apply inline-block bg-plum px-2 py-[2px] text-cream;
+  }
+  .pill-magenta {
+    @apply inline-block bg-magenta px-2 py-[2px] text-cream;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.32em] text-magenta;
+  }
+
+  .heading-display {
+    @apply font-display font-extrabold uppercase tracking-tight leading-[0.95];
+  }
+
+  /* Body type on cream backgrounds is plum, not near-black. */
+  .body-on-cream {
+    @apply text-plum;
+  }
+}
