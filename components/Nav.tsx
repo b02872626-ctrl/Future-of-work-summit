@@ -8,9 +8,7 @@ import { Logo } from "./Logo";
 export function Nav() {
   return (
     <header className="absolute inset-x-0 top-0 z-40">
-      {/* Full-width with the same padding as the hero so the logo aligns
-          horizontally with the headline's left edge. */}
-      <div className="w-full px-8 md:px-16 lg:px-24 flex h-28 items-center justify-between">
+      <div className="container-page flex h-28 items-center justify-between">
         <Link href="/" aria-label="Future of Work — home">
           <Logo />
         </Link>

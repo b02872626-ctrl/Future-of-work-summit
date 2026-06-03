@@ -90,14 +90,13 @@ export default function HomePage() {
       <Nav />
 
       {/* ─── HERO ─────────────────────────────────────────── */}
-      {/* Full-viewport-width wrapper (no max-w constraint) so the headline
-          can scale up on wide monitors instead of being centered in a 1440px
-          column with empty space on the sides. */}
+      {/* container-page so the headline's left edge aligns with the
+          FoW logo's left edge in the Nav above. */}
       <section className="relative overflow-hidden bg-hero-gradient min-h-screen flex flex-col">
-        <div className="relative z-10 flex-1 flex items-center w-full px-8 md:px-16 lg:px-24 pt-32 pb-20 md:pt-36 md:pb-28">
+        <div className="container-page relative z-10 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
           <h1
             className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
-            style={{ fontSize: "clamp(2.5rem, 8.5vw, 11rem)" }}
+            style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
           >
             Shaping how<br />
             Ethiopia works,<br />
