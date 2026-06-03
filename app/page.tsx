@@ -96,7 +96,10 @@ export default function HomePage() {
             className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
             style={{ fontSize: "clamp(2.5rem, 6.6vw, 6.5rem)" }}
           >
-            Shaping how Ethiopia works, hires, builds, and grows.
+            Shaping how<br />
+            Ethiopia works,<br />
+            Hires, builds, and<br />
+            Grows.
           </h1>
         </div>
       </section>
