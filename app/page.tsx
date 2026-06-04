@@ -276,18 +276,16 @@ export default function HomePage() {
       {/* ─── ACTIVITIES (black, interactive tabs) ──────────── */}
       <ActivitiesSection />
 
-      {/* ─── WHAT'S NEXT (black → magenta gradient) ────────── */}
-      {/* Starts black at the top so it blends out of the Activities section above,
-          ramps through plum into bright magenta at the bottom — the magenta is
-          held all the way to the bottom so it matches the top of Join the Movement
-          without any hard edge. The planet that visually sits at this boundary is
-          owned by the Join the Movement section. */}
+      {/* ─── WHAT'S NEXT (black → magenta → cream gradient) ── */}
+      {/* Starts black at the top, ramps through plum and magenta, and ends in
+          light pink/cream so it transitions smoothly into the Join section's
+          cream background without a hard edge. */}
       <section
         id="whats-next"
         className="relative overflow-hidden"
         style={{
           background:
-            "linear-gradient(180deg, #000000 0%, #1a052b 8%, #2e0846 16%, #4B087C 28%, #89069E 48%, #FD00E0 72%, #FD00E0 100%)",
+            "linear-gradient(180deg, #000000 0%, #1a052b 8%, #2e0846 16%, #4B087C 28%, #89069E 48%, #FD00E0 70%, #ff9ddc 88%, #ffd9f4 100%)",
         }}
       >
         {/* Sparkle in the top-left corner, large */}
@@ -311,26 +309,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── JOIN THE MOVEMENT (magenta → cream) ─────────── */}
-      {/* Bright magenta band at the top fades down to near-white at the bottom.
-          Planet shape bleeds in from the top-right corner. Content sits centered. */}
+      {/* ─── JOIN THE MOVEMENT (cream) ───────────────────── */}
+      {/* Cream/light background that picks up where WHAT'S NEXT ends.
+          Planet bleeds UP from this section into the magenta band above,
+          so overflow-visible is intentional. Content is LEFT-aligned per
+          the design. */}
       <section
         id="join"
-        className="relative overflow-hidden"
+        className="relative"
         style={{
           background:
-            "linear-gradient(180deg, #FD00E0 0%, #ff70d3 18%, #ffb8ee 35%, #ffd9f4 55%, #FFF6FE 80%, #FFF6FE 100%)",
+            "linear-gradient(180deg, #ffd9f4 0%, #ffeaf7 40%, #FFF6FE 100%)",
         }}
       >
-        <div className="pointer-events-none absolute right-[-80px] -top-16 hidden md:block w-[640px] z-0">
+        <div className="pointer-events-none absolute right-[-40px] -top-44 hidden md:block w-[680px] z-0">
           <Shard variant="planet" className="w-full h-auto" />
         </div>
-        <div className="pointer-events-none absolute right-[-40px] -top-10 md:hidden w-[320px] z-0">
+        <div className="pointer-events-none absolute right-[-20px] -top-24 md:hidden w-[320px] z-0">
           <Shard variant="planet" className="w-full h-auto" />
         </div>
 
-        <div className="container-page relative z-10 pt-20 pb-40 md:pt-24 md:pb-56">
-          <div className="mx-auto max-w-md">
+        <div className="container-page relative z-10 pt-32 pb-40 md:pt-40 md:pb-56">
+          <div className="max-w-md">
             <h2 className="heading-display text-5xl text-magenta md:text-6xl">
               Join the<br />movement
             </h2>
