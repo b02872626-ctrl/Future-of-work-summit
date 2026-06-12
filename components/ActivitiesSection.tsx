@@ -59,12 +59,6 @@ function PanelCard({ title }: { title: string }) {
         {title}
       </h4>
       <p className="mt-3 text-sm leading-relaxed text-cream/80">{PANEL_CARD_BODY}</p>
-      <a
-        href="#"
-        className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-cream/80 hover:text-magenta"
-      >
-        Read more
-      </a>
     </article>
   );
 }

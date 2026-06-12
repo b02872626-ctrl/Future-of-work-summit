@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Shard } from "@/components/Shard";
 import { IconDivider } from "@/components/IconDivider";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
+import { Footer } from "@/components/Footer";
 
 /* ============================================================
    Content (kept in this file because there is no CMS yet)
@@ -70,12 +72,6 @@ function ExploredCard({
         {title}
       </h3>
       <p className="mt-3 text-sm leading-relaxed text-plum md:text-base">{body}</p>
-      <a
-        href="#"
-        className="mt-5 text-[11px] font-semibold uppercase tracking-[0.18em] text-plum hover:text-magenta"
-      >
-        Read more
-      </a>
     </article>
   );
 }
@@ -94,15 +90,26 @@ export default function HomePage() {
           FoW logo's left edge in the Nav above. */}
       <section className="relative overflow-hidden bg-hero-gradient min-h-screen flex flex-col">
         <div className="container-page relative z-10 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
-          <h1
-            className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
-          >
-            Shaping how<br />
-            Ethiopia works,<br />
-            Hires, builds, and<br />
-            Grows.
-          </h1>
+          <div>
+            <h1
+              className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
+              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
+            >
+              Shaping how<br />
+              Ethiopia works,<br />
+              Hires, builds, and<br />
+              Grows.
+            </h1>
+            <div className="mt-10 md:mt-14">
+              <Link
+                href="/register"
+                className="inline-flex items-center gap-2 rounded-full bg-magenta px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-cream shadow-glow transition hover:brightness-110 md:text-base md:px-9 md:py-4"
+              >
+                Register for 2026
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -341,6 +348,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }
