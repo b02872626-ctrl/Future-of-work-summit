@@ -108,11 +108,6 @@ export default function ContactPage() {
               <br />
               Get in touch with us.
             </h2>
-            <p className="mt-6 max-w-md text-cream/70 md:text-lg">
-              We&apos;re building the next chapter of Future of Work in Ethiopia. Reach out
-              with questions, partnerships, press, or sponsorship — we&apos;d love to hear
-              from you.
-            </p>
 
             <div className="mt-10 space-y-6">
               <ContactRow
@@ -132,7 +127,7 @@ export default function ContactPage() {
           </div>
 
           {/* RIGHT — form */}
-          <div className="rounded-2xl border border-cream/10 bg-cream/[0.03] p-6 md:p-10">
+          <div>
             <h2 className="heading-display text-2xl text-cream md:text-3xl">Send a message</h2>
             <p className="mt-3 text-sm text-cream/65 md:text-base">
               Fill out the form below with your details and message and we&apos;ll get back
