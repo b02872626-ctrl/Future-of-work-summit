@@ -167,16 +167,6 @@ export default function HomePage() {
 
         <IconDivider />
 
-        {/* ─── OUR PARTNERS ──────────────────────────────── */}
-        <div className="container-page py-24 md:py-32">
-          <h2 className="heading-display text-center text-4xl text-plum md:text-5xl lg:text-6xl">
-            Our partners
-          </h2>
-          <div className="min-h-[260px]" aria-hidden="true" />
-        </div>
-
-        <IconDivider />
-
         {/* ─── ABOUT THE SUMMIT (cream → light pink) ───────── */}
         {/* Text occupies the left half; the arrow 3D shape is large on the
             right and sized so it never bleeds past the section's bottom edge. */}
