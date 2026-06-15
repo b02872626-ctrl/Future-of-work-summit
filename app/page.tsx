@@ -101,13 +101,15 @@ export default function HomePage() {
               Grows.
             </h1>
             <div className="mt-10 md:mt-14">
-              <Link
-                href="/register"
+              <a
+                href="https://forms.gle/e8beQFSUbENCjwzEA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-magenta px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-cream shadow-glow transition hover:brightness-110 md:text-base md:px-9 md:py-4"
               >
                 Register for 2026
                 <span aria-hidden="true">→</span>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
@@ -217,15 +219,15 @@ export default function HomePage() {
             Event recap
           </h2>
 
-          {/* Static recap photo with a faux native video controls bar overlaid,
-              per the design. Real video file to be wired later. */}
+          {/* Real recap video embedded from YouTube */}
           <figure className="relative mx-auto mt-14 max-w-5xl aspect-video overflow-hidden shadow-glow">
-            <img
-              src="/photos/recap.jpg"
-              alt="Future of Work Summit recap — panel discussion"
-              className="h-full w-full object-cover"
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/BPKx1PhmYpE?rel=0"
+              title="Future of Work Summit · Event recap"
+              className="absolute inset-0 h-full w-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
             />
-            <FakeVideoControls />
           </figure>
         </div>
       </section>
@@ -344,63 +346,3 @@ export default function HomePage() {
   );
 }
 
-/* Faux native video controls bar overlay for the recap still image. */
-function FakeVideoControls() {
-  return (
-    <div className="absolute inset-x-0 bottom-0 bg-black/55 px-4 py-3 backdrop-blur-sm">
-      <div className="flex items-center gap-4 text-cream">
-        {/* volume */}
-        <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="currentColor">
-          <path d="M3 10v4h4l5 5V5L7 10H3z" />
-          <path
-            d="M16 7c1.5 1.2 2.5 3 2.5 5s-1 3.8-2.5 5"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            fill="none"
-            strokeLinecap="round"
-          />
-        </svg>
-        <div className="h-1 w-20 rounded-full bg-cream/40">
-          <div className="h-full w-1/2 rounded-full bg-cream/90" />
-        </div>
-
-        {/* play/pause spacer */}
-        <div className="ml-auto" />
-
-        {/* center play (pause icon to mirror design's "playing" state) */}
-        <svg viewBox="0 0 24 24" className="h-6 w-6 shrink-0" fill="currentColor">
-          <rect x="6"  y="5" width="4" height="14" rx="1" />
-          <rect x="14" y="5" width="4" height="14" rx="1" />
-        </svg>
-
-        {/* spacer */}
-        <div className="ml-auto" />
-
-        {/* fullscreen */}
-        <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
-          <path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4" />
-        </svg>
-
-        {/* picture-in-picture */}
-        <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <rect x="3"  y="5"  width="18" height="14" rx="2" />
-          <rect x="12" y="12" width="7"  height="5"  rx="1" />
-        </svg>
-
-        {/* settings */}
-        <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="none" stroke="currentColor" strokeWidth="1.6">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.6 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.6-1.1 1.7 1.7 0 0 0-.3-1.8L4.3 7a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z" />
-        </svg>
-      </div>
-
-      <div className="mt-2 flex items-center justify-between text-[11px] text-cream/85 tabular-nums">
-        <span>00:03</span>
-        <div className="mx-3 h-1 flex-1 rounded-full bg-cream/30">
-          <div className="h-full w-[3%] rounded-full bg-cream" />
-        </div>
-        <span>-01:02</span>
-      </div>
-    </div>
-  );
-}

@@ -22,13 +22,22 @@ const TAGLINES: Record<TabKey, string> = {
   panels:
     "Conversations on work, technology, startups, policy, and opportunity.",
   workshops:
-    "Practical learning sessions focused on skills, ideas, and emerging changes in the labor market.",
+    "Practical sessions focused on ideas, skills, and emerging shifts shaping the future of work.",
   exhibitions:
-    "Interactive spaces where attendees explored products, platforms, and opportunities.",
+    "Interactive spaces where attendees explored products, platforms, ideas, and emerging opportunities.",
   networking:
-    "Conversations between attendees, employers, founders, speakers, and ecosystem players.",
+    "Organic conversations between professionals, founders, employers, creators, and emerging talent.",
   "job-fair":
     "A space for employers and job seekers to connect around roles, internships, and future possibilities.",
+};
+
+const BODIES: Partial<Record<TabKey, string>> = {
+  workshops:
+    "From career growth and entrepreneurship to innovation and technology, the workshops were designed to be interactive, practical, and experience-driven. Participants explored real-world ideas, learned from professionals, and engaged in conversations that went beyond theory.",
+  exhibitions:
+    "The exhibition experience brought together companies, startups, innovators, and ecosystem players in one dynamic environment. Attendees discovered new technologies, explored opportunities, interacted with products, and connected directly with the people building the future.",
+  networking:
+    "The summit created a high-energy environment for meaningful connections to happen naturally. Whether through conversations, activities, workshops, or shared interests, participants were able to meet collaborators, discover opportunities, and engage with a diverse ecosystem of people and ideas.",
 };
 
 const PANEL_CARDS = [
@@ -83,6 +92,7 @@ function ImageBlock({ src, alt }: { src: string; alt: string }) {
 
 function ContentBlock({ tab, reverse = false }: { tab: TabKey; reverse?: boolean }) {
   const image = TAB_IMAGE[tab];
+  const body = BODIES[tab];
   return (
     <div className="mx-auto mt-16 grid max-w-6xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
       <div className={`space-y-6 ${reverse ? "md:order-2" : ""}`}>
@@ -96,7 +106,11 @@ function ContentBlock({ tab, reverse = false }: { tab: TabKey; reverse?: boolean
         <h3 className="font-display text-lg font-extrabold uppercase tracking-wide text-magenta md:text-xl">
           {TABS.find((t) => t.key === tab)?.label.toUpperCase()}
         </h3>
-        <p className="mt-6 italic text-cream/85 text-base md:text-lg">[TEXT WILL BE REPLCED]</p>
+        {body ? (
+          <p className="mt-6 text-cream/85 text-base leading-relaxed md:text-lg">{body}</p>
+        ) : (
+          <p className="mt-6 italic text-cream/85 text-base md:text-lg">[TEXT WILL BE REPLCED]</p>
+        )}
       </div>
     </div>
   );
