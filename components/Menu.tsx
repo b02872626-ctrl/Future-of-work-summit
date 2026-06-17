@@ -13,8 +13,8 @@ type Item = {
 };
 
 const ITEMS: Item[] = [
-  { label: "FOW 2025 recap",   href: "/fow-2025-recap.pdf", external: true },
-  { label: "Register for 2026", href: "/register" },
+  { label: "FOW 2025 recap",   href: "/fow-2025-recap.pdf",          external: true },
+  { label: "Register for 2026", href: "https://forms.gle/e8beQFSUbENCjwzEA", external: true },
   { label: "Contact",           href: "/contact" },
 ];
 

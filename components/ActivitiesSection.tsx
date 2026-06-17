@@ -38,6 +38,8 @@ const BODIES: Partial<Record<TabKey, string>> = {
     "The exhibition experience brought together companies, startups, innovators, and ecosystem players in one dynamic environment. Attendees discovered new technologies, explored opportunities, interacted with products, and connected directly with the people building the future.",
   networking:
     "The summit created a high-energy environment for meaningful connections to happen naturally. Whether through conversations, activities, workshops, or shared interests, participants were able to meet collaborators, discover opportunities, and engage with a diverse ecosystem of people and ideas.",
+  "job-fair":
+    "The job fair connected employers, growing companies, and emerging talent in one accessible space. Job seekers explored open roles, met hiring teams, discovered internship pathways, and engaged directly with the organisations shaping Ethiopia's workforce — while employers identified the people ready to build what comes next.",
 };
 
 const PANEL_CARDS = [
