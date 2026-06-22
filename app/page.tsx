@@ -121,7 +121,7 @@ export default function HomePage() {
         <div className="pointer-events-none absolute right-[-160px] top-[-160px] hidden md:block w-[920px] z-20">
           <Shard variant="burst" className="w-full h-auto" />
         </div>
-        <div className="pointer-events-none absolute right-[-80px] top-[-80px] md:hidden w-[420px] z-20">
+        <div className="pointer-events-none absolute right-[-50px] top-[-150px] md:hidden w-[260px] z-20">
           <Shard variant="burst" className="w-full h-auto" />
         </div>
 
