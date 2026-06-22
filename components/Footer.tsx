@@ -9,7 +9,7 @@ type Item = {
 
 const PAGES: Item[] = [
   { label: "Home",              href: "/" },
-  { label: "FOW 2025 recap",    href: "/fow-2025-recap.pdf",          external: true },
+  { label: "FOW 2025 recap",    href: "https://drive.google.com/file/d/1yPceI1sSNZF5g2FU3aiA0pEVf6j1ck9X/view?usp=drive_link", external: true },
   { label: "Register for 2026", href: "https://forms.gle/e8beQFSUbENCjwzEA", external: true },
   { label: "Contact",           href: "/contact" },
 ];

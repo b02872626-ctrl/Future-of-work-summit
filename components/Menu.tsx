@@ -13,9 +13,17 @@ type Item = {
 };
 
 const ITEMS: Item[] = [
-  { label: "FOW 2025 recap",   href: "/fow-2025-recap.pdf",          external: true },
-  { label: "Register for 2026", href: "https://forms.gle/e8beQFSUbENCjwzEA", external: true },
-  { label: "Contact",           href: "/contact" },
+  {
+    label: "FOW 2025 recap",
+    href: "https://drive.google.com/file/d/1yPceI1sSNZF5g2FU3aiA0pEVf6j1ck9X/view?usp=drive_link",
+    external: true,
+  },
+  {
+    label: "Register for 2026",
+    href: "https://forms.gle/e8beQFSUbENCjwzEA",
+    external: true,
+  },
+  { label: "Contact", href: "/contact" },
 ];
 
 const SOCIALS: Item[] = [
@@ -25,7 +33,7 @@ const SOCIALS: Item[] = [
 ];
 
 export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) {
-  // Lock body scroll while the menu is open + close on Escape.
+  // Lock body scroll while open + close on Escape.
   useEffect(() => {
     if (!open) return;
     const originalOverflow = document.body.style.overflow;
@@ -49,8 +57,8 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
         open ? "translate-x-0" : "translate-x-full pointer-events-none"
       }`}
     >
-      <div className="container-page flex h-full flex-col py-10 md:py-12">
-        {/* ── Top bar: logo + close button ─────────────────────── */}
+      <div className="container-page flex h-full flex-col py-8 md:py-10">
+        {/* ── Top bar: logo + close button ─────────────────── */}
         <div className="flex items-center justify-between">
           <Link href="/" onClick={onClose} aria-label="Future of Work — home">
             <Logo />
@@ -63,7 +71,7 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
           >
             <svg
               viewBox="0 0 32 32"
-              className="h-9 w-9"
+              className="h-7 w-7"
               fill="none"
               stroke="currentColor"
               strokeWidth="1.6"
@@ -75,13 +83,9 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
           </button>
         </div>
 
-        {/* ── Body: "Menu" on the left, items on the right ─────── */}
-        <div className="flex-1 grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-          <h2 className="heading-display text-cream text-7xl md:text-8xl lg:text-9xl">
-            Menu
-          </h2>
-
-          <ul className="space-y-4 md:space-y-6">
+        {/* ── Main: large stacked items, centered vertically ─── */}
+        <div className="flex-1 flex flex-col justify-center">
+          <ul className="space-y-3 md:space-y-5">
             {ITEMS.map((item) => (
               <li key={item.label}>
                 {item.external ? (
@@ -90,7 +94,8 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
-                    className="font-display text-3xl font-bold text-cream transition hover:text-magenta md:text-5xl lg:text-6xl"
+                    className="font-display font-bold text-cream transition hover:text-magenta"
+                    style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}
                   >
                     {item.label}
                   </a>
@@ -98,7 +103,8 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className="font-display text-3xl font-bold text-cream transition hover:text-magenta md:text-5xl lg:text-6xl"
+                    className="font-display font-bold text-cream transition hover:text-magenta"
+                    style={{ fontSize: "clamp(2.25rem, 6vw, 5rem)" }}
                   >
                     {item.label}
                   </Link>
@@ -108,24 +114,19 @@ export function Menu({ open, onClose }: { open: boolean; onClose: () => void }) 
           </ul>
         </div>
 
-        {/* ── Bottom: socials ──────────────────────────────────── */}
-        <div className="flex flex-col gap-3 border-t border-cream/15 pt-6 md:flex-row md:items-center md:justify-between">
-          <span className="text-xs uppercase tracking-[0.32em] text-cream/60">
-            Socials
-          </span>
-          <div className="flex flex-wrap gap-x-6 gap-y-2">
-            {SOCIALS.map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium text-cream/80 transition hover:text-magenta md:text-base"
-              >
-                {s.label}
-              </a>
-            ))}
-          </div>
+        {/* ── Bottom: socials as inline links ──────────────── */}
+        <div className="flex justify-end gap-8 text-sm font-medium text-cream/85 md:text-base">
+          {SOCIALS.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-magenta"
+            >
+              {s.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>
