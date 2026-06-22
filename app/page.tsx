@@ -125,7 +125,7 @@ export default function HomePage() {
           <Shard variant="burst" className="w-full h-auto" />
         </div>
 
-        <div className="container-page grid grid-cols-1 gap-10 py-24 md:grid-cols-12 md:py-28">
+        <div className="container-page relative z-30 grid grid-cols-1 gap-10 py-24 md:grid-cols-12 md:py-28">
           <div className="md:col-span-6">
             <p className="text-xl leading-relaxed text-plum md:text-2xl">
               On <span className="font-bold text-plum">October 17 and 18</span>, Future of
