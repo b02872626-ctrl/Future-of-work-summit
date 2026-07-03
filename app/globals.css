@@ -48,4 +48,19 @@
   .body-on-cream {
     @apply text-plum;
   }
+
+  /* Infinite horizontal marquee — track holds 2 copies of the content
+     and scrolls exactly -50% so the loop is seamless. */
+  .marquee-track {
+    animation: marquee-scroll 28s linear infinite;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

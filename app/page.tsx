@@ -88,8 +88,51 @@ export default function HomePage() {
       {/* ─── HERO ─────────────────────────────────────────── */}
       {/* container-page so the headline's left edge aligns with the
           FoW logo's left edge in the Nav above. */}
-      <section className="relative overflow-hidden bg-hero-gradient min-h-screen flex flex-col">
-        <div className="container-page relative z-10 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
+      <section className="relative overflow-hidden bg-black min-h-screen flex flex-col">
+        {/* Recap video plays as the hero background, muted/looping */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/BPKx1PhmYpE?autoplay=1&mute=1&loop=1&playlist=BPKx1PhmYpE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&rel=0&playsinline=1"
+            title="Future of Work Summit background video"
+            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 scale-[1.15]"
+            allow="autoplay; encrypted-media"
+            tabIndex={-1}
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </div>
+
+        {/* Partner logos — infinite scrolling loop, sits behind the burst shard */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 bottom-8 z-10 overflow-hidden md:bottom-12"
+        >
+          <div className="marquee-track flex w-max items-center gap-20">
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex items-center gap-20 pr-20">
+                <img
+                  src="/images/partner-logos-2.png"
+                  alt=""
+                  className="h-8 w-auto brightness-0 invert md:h-10"
+                  style={{ opacity: 0.85 }}
+                />
+                <img
+                  src="/images/partner-logos-1.png"
+                  alt=""
+                  className="h-8 w-auto brightness-0 invert md:h-10"
+                  style={{ opacity: 0.85 }}
+                />
+                <img
+                  src="/images/partner-logos-3.png"
+                  alt=""
+                  className="h-8 w-auto brightness-0 invert md:h-10"
+                  style={{ opacity: 0.85 }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="container-page relative z-20 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
           <div>
             <h1
               className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
@@ -164,6 +207,29 @@ export default function HomePage() {
             {EXPLORED.map((card) => (
               <ExploredCard key={card.title} {...card} />
             ))}
+          </div>
+        </div>
+
+        <IconDivider />
+
+        {/* ─── PARTNERS ─────────────────────────────────────── */}
+        <div className="container-page py-16 md:py-20">
+          <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 md:gap-12">
+            <img
+              src="/images/partner-logos-2.png"
+              alt="Ministry of Labor and Skills, and Afriwork"
+              className="h-auto w-full max-w-2xl"
+            />
+            <img
+              src="/images/partner-logos-1.png"
+              alt="Arifpay, SNV, and Mercy Corps"
+              className="h-auto w-full max-w-2xl"
+            />
+            <img
+              src="/images/partner-logos-3.png"
+              alt="Arts, and Eternal Media & Communication"
+              className="h-auto w-full max-w-lg"
+            />
           </div>
         </div>
 
