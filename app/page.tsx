@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Nav } from "@/components/Nav";
+import HeroVideo from "@/components/HeroVideo";
+import { QuotesCarousel } from "@/components/QuotesCarousel";
 import { Shard } from "@/components/Shard";
 import { IconDivider } from "@/components/IconDivider";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
@@ -89,17 +91,8 @@ export default function HomePage() {
       {/* container-page so the headline's left edge aligns with the
           FoW logo's left edge in the Nav above. */}
       <section className="relative overflow-hidden bg-black min-h-screen flex flex-col">
-        {/* Recap video plays as the hero background, muted/looping */}
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <iframe
-            src="https://www.youtube-nocookie.com/embed/BPKx1PhmYpE?autoplay=1&mute=1&loop=1&playlist=BPKx1PhmYpE&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&disablekb=1&rel=0&playsinline=1"
-            title="Future of Work Summit background video"
-            className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2 scale-[1.15]"
-            allow="autoplay; encrypted-media"
-            tabIndex={-1}
-          />
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+        {/* Gradient BG paints instantly; local video wipes in once it loads */}
+        <HeroVideo />
 
         {/* Partner logos — infinite scrolling loop, sits behind the burst shard */}
         <div
@@ -335,6 +328,32 @@ export default function HomePage() {
               <span className="font-bold text-cream">new connections</span>.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ─── VOICES FROM THE SUMMIT (black) ─────────────────── */}
+      {/* Horizontal carousel of quotes — every slide uses the portrait-over-
+          glow-disc composition. See components/QuotesCarousel.tsx. */}
+      <section className="relative overflow-hidden bg-black">
+        {/* Soft magenta wash in the top-right corner */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(55% 45% at 100% 0%, rgba(253,0,224,0.16) 0%, rgba(0,0,0,0) 60%)",
+          }}
+        />
+
+        <div className="container-page relative z-10 py-24 md:py-32">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="eyebrow">In their words</p>
+            <h2 className="heading-display mt-4 text-5xl text-cream md:text-7xl">
+              Voices from the Summit
+            </h2>
+          </div>
+
+          <QuotesCarousel />
         </div>
       </section>
 

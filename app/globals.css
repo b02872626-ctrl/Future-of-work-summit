@@ -54,6 +54,52 @@
   .marquee-track {
     animation: marquee-scroll 28s linear infinite;
   }
+
+  /* Horizontal carousels scroll natively but hide the scrollbar chrome. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Speaker cutout portraits — softly dissolve the straight-cut bottom edge
+     of the transparent PNG so the torso melts into the glow behind it. */
+  .portrait-fade {
+    -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent 98%);
+    mask-image: linear-gradient(to bottom, #000 78%, transparent 98%);
+  }
+
+  /* Hero video reveal — a very feathered mask that wipes left→right.
+     --hero-reveal moves the black→transparent band across the frame. At the
+     start value the whole frame is masked out (gradient shows through); at
+     the revealed value it's fully painted. The 55% feather band makes the
+     leading edge extremely soft. */
+  .hero-video-mask {
+    --hero-reveal: -60;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      #000 calc(var(--hero-reveal) * 1%),
+      transparent calc((var(--hero-reveal) + 55) * 1%)
+    );
+    mask-image: linear-gradient(
+      to right,
+      #000 calc(var(--hero-reveal) * 1%),
+      transparent calc((var(--hero-reveal) + 55) * 1%)
+    );
+    transition: --hero-reveal 2s cubic-bezier(0.33, 0, 0.2, 1);
+  }
+  .hero-video-mask.is-revealed {
+    --hero-reveal: 145;
+  }
+}
+
+/* Registered so the custom property can be smoothly interpolated in the
+   transition above (a plain custom property would snap instead of animate). */
+@property --hero-reveal {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: -60;
 }
 
 @keyframes marquee-scroll {
