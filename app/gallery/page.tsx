@@ -20,17 +20,20 @@ const TILE_SHAPES: NonNullable<GalleryImage["shape"]>[] = [
 ];
 
 function dayImages(day: 1 | 2): GalleryImage[] {
-  return Array.from({ length: 50 }, (_, index) => {
-    const imageNumber = index + 1;
-    const fileNumber = String(imageNumber).padStart(3, "0");
+  const hiddenImages = day === 1 ? new Set([1, 2, 3]) : new Set<number>();
 
-    return {
-      src: `/photos/gallery/day-${day}/day-${day}-${fileNumber}.jpg`,
-      alt: `Future of Work Summit Day ${day}, photo ${imageNumber}`,
-      caption: `Day ${day} photo ${imageNumber}`,
-      shape: TILE_SHAPES[index % TILE_SHAPES.length],
-    };
-  });
+  return Array.from({ length: 50 }, (_, index) => index + 1)
+    .filter((imageNumber) => !hiddenImages.has(imageNumber))
+    .map((imageNumber, index) => {
+      const fileNumber = String(imageNumber).padStart(3, "0");
+
+      return {
+        src: `/photos/gallery/day-${day}/day-${day}-${fileNumber}.jpg`,
+        alt: `Future of Work Summit Day ${day}, photo ${imageNumber}`,
+        caption: `Day ${day} photo ${imageNumber}`,
+        shape: TILE_SHAPES[index % TILE_SHAPES.length],
+      };
+    });
 }
 
 const GALLERY_IMAGES = [...dayImages(1), ...dayImages(2)];
