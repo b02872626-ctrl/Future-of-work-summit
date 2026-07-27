@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/2025",
+      "destination": "https://future-of-worket-dev.webflow.io/"
+    },
+    {
+      "source": "/2025/:path*",
+      "destination": "https://future-of-worket-dev.webflow.io/:path*"
+    }
+  ]
+}
