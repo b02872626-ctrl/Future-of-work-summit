@@ -43,10 +43,26 @@ const BODIES: Partial<Record<TabKey, string>> = {
 };
 
 const PANEL_CARDS = [
-  "Future of Work: Trends, Challenges, Opportunities",
-  "Policy, Regulation & Financial Inclusion",
-  "Innovation and Technology",
-  "Startup Ecosystem as Driver of Change",
+  {
+    title: "Future of Work: Trends, Challenges, Opportunities",
+    image: "/photos/gallery/day-2/day-2-027.jpg",
+    alt: "Future of Work panelists discussing trends, challenges, and opportunities",
+  },
+  {
+    title: "Policy, Regulation & Financial Inclusion",
+    image: "/photos/gallery/day-1/day-1-040.jpg",
+    alt: "Policy leaders speaking to the summit audience",
+  },
+  {
+    title: "Innovation and Technology",
+    image: "/photos/gallery/day-2/day-2-011.jpg",
+    alt: "Technology leaders in conversation on the summit stage",
+  },
+  {
+    title: "Startup Ecosystem as Driver of Change",
+    image: "/photos/gallery/day-2/day-2-049.jpg",
+    alt: "Summit attendees exploring an interactive startup exhibition",
+  },
 ];
 
 const PANEL_CARD_BODY =
@@ -60,11 +76,19 @@ const TAB_IMAGE: Record<TabKey, string | string[]> = {
   "job-fair":  ["/photos/job-fair-1.jpg", "/photos/networking-1.jpg"],
 };
 
-function PanelCard({ title }: { title: string }) {
+function PanelCard({
+  title,
+  image,
+  alt,
+}: {
+  title: string;
+  image: string;
+  alt: string;
+}) {
   return (
     <article className="flex flex-col">
       <div className="relative aspect-[16/9] w-full overflow-hidden">
-        <img src="/photos/panels.jpg" alt="" className="h-full w-full object-cover" />
+        <img src={image} alt={alt} className="h-full w-full object-cover" />
       </div>
       <h4 className="mt-5 font-display text-base font-extrabold uppercase tracking-wide text-magenta leading-tight">
         {title}
@@ -77,8 +101,8 @@ function PanelCard({ title }: { title: string }) {
 function PanelsContent() {
   return (
     <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-x-10 gap-y-14 sm:grid-cols-2">
-      {PANEL_CARDS.map((title) => (
-        <PanelCard key={title} title={title} />
+      {PANEL_CARDS.map((card) => (
+        <PanelCard key={card.title} {...card} />
       ))}
     </div>
   );

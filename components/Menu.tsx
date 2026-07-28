@@ -13,6 +13,7 @@ type Item = {
 };
 
 const ITEMS: Item[] = [
+  { label: "Home", href: "/" },
   {
     label: "FOW 2025 recap",
     href: "https://drive.google.com/file/d/1yPceI1sSNZF5g2FU3aiA0pEVf6j1ck9X/view?usp=drive_link",
@@ -23,6 +24,7 @@ const ITEMS: Item[] = [
     href: "https://forms.gle/e8beQFSUbENCjwzEA",
     external: true,
   },
+  { label: "Gallery", href: "/gallery" },
   { label: "Contact", href: "/contact" },
 ];
 

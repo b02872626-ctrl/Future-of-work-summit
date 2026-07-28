@@ -6,18 +6,19 @@ import { Logo } from "./Logo";
 import { Menu } from "./Menu";
 
 /**
- * Top bar: FoW logo on the left, hamburger icon on the right.
+ * Top bar: FoW logo on the left and hamburger on the right.
  * The hamburger opens a full-screen drawer that slides in from the right.
  */
-export function Nav() {
+export function Nav({ theme = "dark" }: { theme?: "dark" | "light" }) {
   const [open, setOpen] = useState(false);
+  const light = theme === "light";
 
   return (
     <>
       <header className="absolute inset-x-0 top-0 z-40">
         <div className="container-page flex h-28 items-center justify-between">
           <Link href="/" aria-label="Future of Work — home">
-            <Logo />
+            <Logo className={light ? "brightness-0" : ""} />
           </Link>
 
           <button
@@ -25,7 +26,9 @@ export function Nav() {
             aria-label="Open menu"
             aria-expanded={open}
             onClick={() => setOpen(true)}
-            className="flex h-12 w-12 items-center justify-center text-cream transition hover:text-magenta"
+            className={`flex h-12 w-12 items-center justify-center transition hover:text-magenta ${
+              light ? "text-plum" : "text-cream"
+            }`}
           >
             <svg
               viewBox="0 0 32 32"
