@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const CONTACT = {
-  phone: "+251 000 000 000",
+  phone: "0908549999",
   email: "hello@futureofwork.et",
   address: "Bole · Addis Ababa · Ethiopia",
 };

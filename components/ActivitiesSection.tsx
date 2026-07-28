@@ -50,13 +50,13 @@ const PANEL_CARDS = [
   },
   {
     title: "Policy, Regulation & Financial Inclusion",
-    image: "/photos/gallery/day-1/day-1-040.jpg",
-    alt: "Policy leaders speaking to the summit audience",
+    image: "/photos/gallery/day-2/day-2-035.jpg",
+    alt: "Policy leaders in a close panel discussion",
   },
   {
     title: "Innovation and Technology",
-    image: "/photos/gallery/day-2/day-2-011.jpg",
-    alt: "Technology leaders in conversation on the summit stage",
+    image: "/photos/gallery/day-1/day-1-042.jpg",
+    alt: "Attendees listening during an innovation and technology session",
   },
   {
     title: "Startup Ecosystem as Driver of Change",

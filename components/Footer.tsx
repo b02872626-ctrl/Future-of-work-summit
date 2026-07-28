@@ -31,7 +31,7 @@ const SOCIALS: Item[] = [
 
 const CONTACT = {
   email: "hello@futureofwork.et",
-  phone: "+251 000 000 000",
+  phone: "0908549999",
 };
 
 function Column({
