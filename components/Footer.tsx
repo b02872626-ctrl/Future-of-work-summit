@@ -19,7 +19,6 @@ const SECTIONS: Item[] = [
   { label: "What was explored", href: "/#explored" },
   { label: "Event recap",       href: "/#recap" },
   { label: "Activities",        href: "/#activities" },
-  { label: "What's next",       href: "/#whats-next" },
   { label: "Join the movement", href: "/#join" },
 ];
 

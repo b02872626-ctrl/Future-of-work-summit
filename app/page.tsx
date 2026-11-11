@@ -375,12 +375,11 @@ export default function HomePage() {
       {/* ─── ACTIVITIES (black, interactive tabs) ──────────── */}
       <ActivitiesSection />
 
-      {/* ─── WHAT'S NEXT (black → magenta → cream gradient) ── */}
+      {/* ─── TRANSITION BAND (black → magenta → cream gradient) ── */}
       {/* Starts black at the top, ramps through plum and magenta, and ends in
           light pink/cream so it transitions smoothly into the Join section's
           cream background without a hard edge. */}
       <section
-        id="whats-next"
         className="relative overflow-hidden"
         style={{
           background:
@@ -395,21 +394,11 @@ export default function HomePage() {
           <Shard variant="sparkle" className="w-full h-auto" />
         </div>
 
-        <div className="container-page relative z-10 pt-40 pb-20 md:pt-56 md:pb-24">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="heading-display text-cream text-5xl md:text-7xl">
-              What&apos;s next
-            </h2>
-            <p className="mt-10 text-xl leading-relaxed text-cream md:text-2xl">
-              Future of Work is growing beyond a single event. Upcoming editions will continue
-              to create better spaces for:
-            </p>
-          </div>
-        </div>
+        <div className="relative z-10 h-64 md:h-96" />
       </section>
 
       {/* ─── JOIN THE MOVEMENT (cream) ───────────────────── */}
-      {/* Cream/light background that picks up where WHAT'S NEXT ends.
+      {/* Cream/light background that picks up where the gradient band ends.
           Planet bleeds UP from this section into the magenta band above,
           so overflow-visible is intentional. Content is LEFT-aligned per
           the design. */}
@@ -455,9 +444,6 @@ export default function HomePage() {
                   >
                     {EVENT.location}
                   </a>
-                  <span className="mt-1 block text-sm font-medium text-plum/70">
-                    Open in Google Maps
-                  </span>
                 </dd>
               </div>
             </dl>
