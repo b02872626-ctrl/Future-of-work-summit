@@ -44,6 +44,17 @@
     @apply font-display font-extrabold uppercase tracking-tight leading-[0.95];
   }
 
+  /* Hero headline: fluid on phones; from md up sized so the longest line
+     ("Emerging technology") never wraps inside .container-page. */
+  .hero-title {
+    font-size: clamp(2.5rem, 11vw, 4.5rem);
+  }
+  @media (min-width: 768px) {
+    .hero-title {
+      font-size: clamp(2.75rem, 6.2vw, 6.5rem);
+    }
+  }
+
   /* Body type on cream backgrounds is plum, not near-black. */
   .body-on-cream {
     @apply text-plum;

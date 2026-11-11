@@ -127,9 +127,10 @@ export default function HomePage() {
         </div>
 
         <div className="container-page relative z-30 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
-          <div>
-            {/* 2026 date + time — the first thing visitors should read */}
-            <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-cream md:mb-8 md:text-base">
+          {/* Centred on phones, left-aligned from the md breakpoint up */}
+          <div className="w-full text-center md:text-left">
+            {/* 2026 date + venue — the first thing visitors should read */}
+            <p className="mb-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-cream md:mb-8 md:justify-start md:text-base">
               <span className="pill-magenta">FOW 2026</span>
               <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
               <span aria-hidden="true" className="text-cream/50">·</span>
@@ -142,13 +143,12 @@ export default function HomePage() {
                 {EVENT.location}
               </a>
             </p>
-            <h1
-              className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
-              style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
-            >
-              Future of work:<br />
-              Emerging technology<br />
-              and AI
+            {/* Phones wrap naturally; from md up each line is kept whole and the
+                size scales with the viewport so it always sits on three lines. */}
+            <h1 className="hero-title font-display font-bold uppercase tracking-tight text-cream leading-[0.95]">
+              <span className="md:block md:whitespace-nowrap">Future of work:</span>{" "}
+              <span className="md:block md:whitespace-nowrap">Emerging technology</span>{" "}
+              <span className="md:block md:whitespace-nowrap">and AI</span>
             </h1>
             <div className="mt-10 md:mt-14">
               <a
