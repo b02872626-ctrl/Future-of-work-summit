@@ -132,10 +132,6 @@ export default function HomePage() {
             <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-cream md:mb-8 md:text-base">
               <span className="pill-magenta">FOW 2026</span>
               <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
-              <span aria-hidden="true" className="text-cream/50">·</span>
-              <span>{EVENT.format}</span>
-              <span aria-hidden="true" className="text-cream/50">·</span>
-              <span className="text-cream/80">{EVENT.time}</span>
             </p>
             <h1
               className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
@@ -432,20 +428,12 @@ export default function HomePage() {
               Be part of Ethiopia&apos;s workforce transformation, and help build a future
               that works for everyone.
             </p>
-            <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-plum/20 pt-8 sm:grid-cols-3">
+            <dl className="mt-10 border-t border-plum/20 pt-8">
               <div>
                 <dt className="eyebrow">Date</dt>
                 <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
                   <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
                 </dd>
-              </div>
-              <div>
-                <dt className="eyebrow">Format</dt>
-                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">{EVENT.format}</dd>
-              </div>
-              <div>
-                <dt className="eyebrow">Time</dt>
-                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">{EVENT.time}</dd>
               </div>
             </dl>
             <a
