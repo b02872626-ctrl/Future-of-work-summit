@@ -132,6 +132,15 @@ export default function HomePage() {
             <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-cream md:mb-8 md:text-base">
               <span className="pill-magenta">FOW 2026</span>
               <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
+              <span aria-hidden="true" className="text-cream/50">·</span>
+              <a
+                href={EVENT.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline decoration-magenta decoration-2 underline-offset-4 transition hover:text-magenta"
+              >
+                {EVENT.location}
+              </a>
             </p>
             <h1
               className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
@@ -428,11 +437,27 @@ export default function HomePage() {
               Be part of Ethiopia&apos;s workforce transformation, and help build a future
               that works for everyone.
             </p>
-            <dl className="mt-10 border-t border-plum/20 pt-8">
+            <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-plum/20 pt-8 sm:grid-cols-2">
               <div>
                 <dt className="eyebrow">Date</dt>
                 <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
                   <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
+                </dd>
+              </div>
+              <div>
+                <dt className="eyebrow">Location</dt>
+                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
+                  <a
+                    href={EVENT.mapUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-magenta decoration-2 underline-offset-4 transition hover:text-magenta"
+                  >
+                    {EVENT.location}
+                  </a>
+                  <span className="mt-1 block text-sm font-medium text-plum/70">
+                    Open in Google Maps
+                  </span>
                 </dd>
               </div>
             </dl>

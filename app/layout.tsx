@@ -19,7 +19,7 @@ const pangram = localFont({
 export const metadata: Metadata = {
   title: "Future of Work Summit 2026 · 28 November · Shaping how Ethiopia works",
   description:
-    "Future of Work Summit 2026 takes place on 28 November 2026. It brings together the people shaping the next chapter of work in Ethiopia — at the intersection of jobs, skills, technology, innovation, entrepreneurship, and policy.",
+    "Future of Work Summit 2026 takes place on 28 November 2026 at the Ethiopian Science Museum. It brings together the people shaping the next chapter of work in Ethiopia — at the intersection of jobs, skills, technology, innovation, entrepreneurship, and policy.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
