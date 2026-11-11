@@ -7,6 +7,7 @@ import { Shard } from "@/components/Shard";
 import { IconDivider } from "@/components/IconDivider";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { Footer } from "@/components/Footer";
+import { EVENT } from "@/lib/event";
 
 /* ============================================================
    Content (kept in this file because there is no CMS yet)
@@ -125,8 +126,17 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="container-page relative z-20 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
+        <div className="container-page relative z-30 flex-1 flex items-center pt-32 pb-20 md:pt-36 md:pb-28">
           <div>
+            {/* 2026 date + time — the first thing visitors should read */}
+            <p className="mb-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm font-semibold uppercase tracking-[0.18em] text-cream md:mb-8 md:text-base">
+              <span className="pill-magenta">FOW 2026</span>
+              <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
+              <span aria-hidden="true" className="text-cream/50">·</span>
+              <span>{EVENT.format}</span>
+              <span aria-hidden="true" className="text-cream/50">·</span>
+              <span className="text-cream/80">{EVENT.time}</span>
+            </p>
             <h1
               className="font-display font-bold uppercase tracking-tight text-cream leading-[0.95]"
               style={{ fontSize: "clamp(2.5rem, 7vw, 7rem)" }}
@@ -164,8 +174,8 @@ export default function HomePage() {
         <div className="container-page relative z-30 grid grid-cols-1 gap-10 py-24 md:grid-cols-12 md:py-28">
           <div className="md:col-span-6">
             <p className="text-xl leading-relaxed text-plum md:text-2xl">
-              On <span className="font-bold text-plum">October 17 and 18</span>, Future of
-              Work Summit brought together young professionals, students, employers, founders,
+              In 2025, on <span className="font-bold text-plum">October 17 and 18</span>, Future
+              of Work Summit brought together young professionals, students, employers, founders,
               innovators, and ecosystem leaders for two days of conversation,{" "}
               <span className="pill">connection</span> and{" "}
               <span className="pill">opportunity</span>.
@@ -422,6 +432,31 @@ export default function HomePage() {
               Be part of Ethiopia&apos;s workforce transformation, and help build a future
               that works for everyone.
             </p>
+            <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-plum/20 pt-8 sm:grid-cols-3">
+              <div>
+                <dt className="eyebrow">Date</dt>
+                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
+                  <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
+                </dd>
+              </div>
+              <div>
+                <dt className="eyebrow">Format</dt>
+                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">{EVENT.format}</dd>
+              </div>
+              <div>
+                <dt className="eyebrow">Time</dt>
+                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">{EVENT.time}</dd>
+              </div>
+            </dl>
+            <a
+              href="https://forms.gle/e8beQFSUbENCjwzEA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-plum px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-cream transition hover:bg-magenta md:text-base md:px-9 md:py-4"
+            >
+              Register for 2026
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
       </section>
