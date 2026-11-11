@@ -413,29 +413,29 @@ export default function HomePage() {
         <div className="pointer-events-none absolute right-[-40px] -top-44 hidden md:block w-[680px] z-0">
           <Shard variant="planet" className="w-full h-auto" />
         </div>
-        <div className="pointer-events-none absolute right-[-20px] -top-24 md:hidden w-[320px] z-0">
+        <div className="pointer-events-none absolute right-[-20px] -top-44 md:hidden w-[320px] z-0">
           <Shard variant="planet" className="w-full h-auto" />
         </div>
 
         <div className="container-page relative z-10 pt-32 pb-40 md:pt-40 md:pb-56">
-          <div className="max-w-md">
-            <h2 className="heading-display text-5xl text-magenta md:text-6xl">
+          <div className="max-w-xl lg:max-w-2xl">
+            <h2 className="heading-display text-6xl text-magenta md:text-8xl lg:text-[112px]">
               Join the<br />movement
             </h2>
-            <p className="mt-10 text-2xl leading-[1.6] text-plum md:text-3xl">
+            <p className="mt-12 text-3xl leading-[1.5] text-plum md:text-4xl">
               Be part of Ethiopia&apos;s workforce transformation, and help build a future
               that works for everyone.
             </p>
-            <dl className="mt-10 grid grid-cols-1 gap-6 border-t border-plum/20 pt-8 sm:grid-cols-2">
+            <dl className="mt-12 grid grid-cols-1 gap-8 border-t border-plum/20 pt-10 sm:grid-cols-2">
               <div>
-                <dt className="eyebrow">Date</dt>
-                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
+                <dt className="eyebrow text-sm">Date</dt>
+                <dd className="mt-3 text-2xl font-bold text-plum md:text-3xl">
                   <time dateTime={EVENT.isoDate}>{EVENT.dateLabel}</time>
                 </dd>
               </div>
               <div>
-                <dt className="eyebrow">Location</dt>
-                <dd className="mt-2 text-lg font-bold text-plum md:text-xl">
+                <dt className="eyebrow text-sm">Location</dt>
+                <dd className="mt-3 text-2xl font-bold text-plum md:text-3xl">
                   <a
                     href={EVENT.mapUrl}
                     target="_blank"
@@ -451,7 +451,7 @@ export default function HomePage() {
               href="https://forms.gle/e8beQFSUbENCjwzEA"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-10 inline-flex items-center gap-2 rounded-full bg-plum px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-cream transition hover:bg-magenta md:text-base md:px-9 md:py-4"
+              className="mt-14 inline-flex items-center gap-3 rounded-full bg-plum px-9 py-4 text-base font-semibold uppercase tracking-[0.18em] text-cream transition hover:bg-magenta md:px-12 md:py-5 md:text-lg"
             >
               Register for 2026
               <span aria-hidden="true">→</span>
