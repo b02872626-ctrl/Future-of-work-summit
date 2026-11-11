@@ -33,8 +33,16 @@ export default function HeroVideo() {
         }`}
       />
 
-      {/* Legibility scrim over whatever is showing */}
-      <div className="absolute inset-0 bg-black/30" />
+      {/* Legibility scrims over whatever is showing: a flat darkening layer
+          plus a stronger left-to-right fade behind the headline and CTA. */}
+      <div className="absolute inset-0 bg-black/50" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 55%, rgba(0,0,0,0) 100%)",
+        }}
+      />
     </div>
   );
 }
