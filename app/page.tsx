@@ -147,7 +147,7 @@ export default function HomePage() {
                 size scales with the viewport so it always sits on three lines. */}
             <h1 className="hero-title font-display font-bold uppercase tracking-tight text-cream leading-[0.95]">
               <span className="md:block md:whitespace-nowrap">Future of work:</span>{" "}
-              <span className="md:block md:whitespace-nowrap">Emerging technology</span>{" "}
+              <span className="md:block md:whitespace-nowrap">Emerging technologies</span>{" "}
               <span className="md:block md:whitespace-nowrap">and AI</span>
             </h1>
             <div className="mt-10 md:mt-14">

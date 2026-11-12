@@ -45,7 +45,7 @@
   }
 
   /* Hero headline: fluid on phones; from md up sized so the longest line
-     ("Emerging technology") never wraps inside .container-page. */
+     ("Emerging technologies") never wraps inside .container-page. */
   .hero-title {
     font-size: clamp(2.5rem, 11vw, 4.5rem);
   }
