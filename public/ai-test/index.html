@@ -75,6 +75,7 @@ h1:focus, h2:focus { outline: none; }
   text-decoration: none;
   font-weight: 700;
   font-size: 17px;
+  text-align: center;
 }
 .btn-primary { background: #fff; color: var(--bg); }
 .btn-primary:hover { background: #F7D9F3; }
@@ -227,31 +228,30 @@ h1:focus, h2:focus { outline: none; }
 
 /* Summit block in poster style */
 .summit { position: relative; overflow: hidden; margin-top: 52px; color: #fff; }
-.summit-body { position: relative; z-index: 1; padding: 30px 24px 28px; }
+.summit-body { position: relative; z-index: 1; padding: 56px 32px 52px; }
 .summit::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(11,7,17,0) 25%, rgba(11,7,17,.7) 60%, rgba(11,7,17,.94) 100%);
+  background: linear-gradient(180deg, rgba(11,7,17,0) 30%, rgba(11,7,17,.6) 70%, rgba(11,7,17,.85) 100%);
   pointer-events: none;
 }
-.summit .tag { font-size: 17px; }
+.summit .tag { margin-bottom: 26px; font-size: 17px; }
 .summit h2 {
-  margin: 0 0 18px;
-  font-size: clamp(40px, 10.5vw, 64px);
+  margin: 0 0 16px;
+  max-width: 9ch;
+  font-size: clamp(52px, 14vw, 92px);
   font-weight: 700;
   line-height: .95;
   letter-spacing: -0.045em;
   text-wrap: balance;
 }
-.summit .when { margin: 0 0 20px; font-size: 21px; font-weight: 600; line-height: 1.2; letter-spacing: -0.02em; }
-.summit p { margin: 0 0 12px; }
-.summit .proof { color: var(--pink); font-weight: 600; }
-.summit .countdown { margin: 22px 0 14px; font-size: 18px; font-weight: 700; }
-.orgs { background: #fff; color: #1A1020; padding: 18px 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 15px; line-height: 1.35; }
-.orgs dt { color: var(--magenta); font-weight: 600; margin-bottom: 4px; }
-.orgs dd { margin: 0; font-weight: 600; }
-@media (max-width: 420px) { .orgs { grid-template-columns: 1fr; } }
+.summit .theme { margin: 0 0 8px; font-size: 21px; font-weight: 600; line-height: 1.3; letter-spacing: -0.015em; color: rgba(255, 255, 255, .88); }
+.summit .when { margin: 0 0 40px; font-size: 18px; font-weight: 700; line-height: 1.35; color: #fff; }
+@media (max-width: 380px) {
+  .summit-body { padding: 44px 20px 40px; }
+  .summit .btn { width: 100%; padding: 0 16px; }
+}
 
 .share-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; margin: 0 0 12px; }
 .note { font-size: 14px; color: var(--muted); min-height: 1.4em; }
@@ -341,10 +341,6 @@ details.review summary { cursor: pointer; font-size: 20px; font-weight: 700; let
         <canvas class="streaks" data-art="summit" aria-hidden="true"></canvas>
         <div class="summit-body" id="r-summit"></div>
       </div>
-      <dl class="orgs">
-        <div><dt>Organized by</dt><dd>Ministry of Labor and Skills, Afriwork</dd></div>
-        <div><dt>Partners</dt><dd>Arifpay, SNV, Mercy Corps</dd></div>
-      </dl>
 
       <div class="block">
         <h2>Share your result</h2>
@@ -550,16 +546,16 @@ details.review summary { cursor: pointer; font-size: 20px; font-weight: 700; let
   const LEVELS = [
     { min: 32, name: "AI Power User",
       desc: "You know where AI shines and where it fails, and you use it with care. That puts you ahead of most people.",
-      rec: "Bring your questions to the expert masterclasses and live AI tool demos, and meet employers looking for exactly these skills." },
+      summit: "Witness the next big thing" },
     { min: 25, name: "AI Practitioner",
       desc: "You use AI well and avoid most of the traps. A few sharper habits will make it a real advantage at work.",
-      rec: "The hands-on workshops, including Digital and AI skills for work with ALX, will turn good habits into a real advantage." },
+      summit: "Upgrade your skills" },
     { min: 18, name: "AI Explorer",
       desc: "You know the basics. The biggest gains now are in how you ask and how you check what comes back.",
-      rec: "Start with the hands-on Digital and AI skills for work workshop with ALX. Seats are limited, so register early." },
+      summit: "Upgrade your skills" },
     { min: 0, name: "AI Curious",
       desc: "You're at the start, which is the best time to build good habits. A few simple techniques will make AI useful quickly.",
-      rec: "Start with the hands-on Digital and AI skills for work workshop with ALX. Seats are limited, so register early." }
+      summit: "Upgrade your skills" }
   ];
 
   /* ===== Helpers ===== */
@@ -755,24 +751,20 @@ details.review summary { cursor: pointer; font-size: 20px; font-weight: 700; let
 
   function renderSummit(level) {
     const box = $("r-summit");
-    const days = daysToSummit();
-    if (days < 0) {
+    if (daysToSummit() < 0) {
       box.innerHTML = `
         <p class="tag">Future of Work Summit 2026</p>
-        <h2>Emerging technologies and AI</h2>
-        <p>The 2026 summit took place on 28 November at the Science Museum, Addis Ababa. See the highlights and what's next.</p>
+        <h2>See you at the next one</h2>
+        <p class="theme">Emerging technologies and AI</p>
+        <p class="when">Held on 28 Nov 2026<br>Science Museum, Addis Ababa</p>
         <a class="btn btn-primary" href="${esc(CONFIG.summitUrl)}" target="_blank" rel="noopener">Visit the summit website</a>`;
       return;
     }
-    const when = days === 0 ? "It's today." : days === 1 ? "It's tomorrow." : `${days} days to go.`;
     box.innerHTML = `
       <p class="tag">Future of Work Summit 2026</p>
-      <h2>Emerging technologies and AI</h2>
+      <h2>${esc(level.summit)}</h2>
+      <p class="theme">Emerging technologies and AI</p>
       <p class="when">Sat, 28 Nov 2026<br>Science Museum, Addis Ababa</p>
-      <p>A practical day of hands-on workshops, expert masterclasses, live AI tool demos and employer sessions, for students, job seekers, professionals and employers.</p>
-      <p class="proof">Last year, 4,200+ people came, and about 1,260 job seekers found a job or internship lead on the day.</p>
-      <p>${esc(level.rec)}</p>
-      <p class="countdown">${when}</p>
       <a class="btn btn-primary" id="register" href="${esc(CONFIG.registerUrl)}" target="_blank" rel="noopener">Register for the summit</a>`;
     $("register").addEventListener("click", () => track("ai_test_register_click", { level: level.name }));
   }
