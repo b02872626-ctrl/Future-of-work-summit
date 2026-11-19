@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const CONTACT = {
-  phone: "0908549999",
+  phones: ["0908529999", "0908532222"],
   email: "hello@futureofwork.et",
   address: "Bole · Addis Ababa · Ethiopia",
 };
@@ -47,7 +47,7 @@ function PinIcon() {
    Reusable bits
    ============================================================ */
 
-function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: string; href?: string }) {
+function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label: string; value: React.ReactNode; href?: string }) {
   return (
     <div className="flex items-start gap-4">
       <span className="mt-1 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-magenta/15 text-magenta">
@@ -59,8 +59,10 @@ function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label
           <a href={href} className="mt-1 block text-base font-medium text-cream transition hover:text-magenta md:text-lg">
             {value}
           </a>
-        ) : (
+        ) : typeof value === "string" ? (
           <p className="mt-1 text-base font-medium text-cream md:text-lg">{value}</p>
+        ) : (
+          value
         )}
       </div>
     </div>
@@ -113,8 +115,18 @@ export default function ContactPage() {
               <ContactRow
                 icon={<PhoneIcon />}
                 label="Phone"
-                value={CONTACT.phone}
-                href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
+                value={
+                  <span className="mt-1 block text-base font-medium text-cream md:text-lg">
+                    {CONTACT.phones.map((phone, i) => (
+                      <span key={phone}>
+                        {i > 0 && <span className="text-cream/40"> / </span>}
+                        <a href={`tel:${phone}`} className="transition hover:text-magenta">
+                          {phone}
+                        </a>
+                      </span>
+                    ))}
+                  </span>
+                }
               />
               <ContactRow
                 icon={<MailIcon />}

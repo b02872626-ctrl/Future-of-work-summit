@@ -30,7 +30,7 @@ const SOCIALS: Item[] = [
 
 const CONTACT = {
   email: "hello@futureofwork.et",
-  phone: "0908549999",
+  phones: ["0908529999", "0908532222"],
 };
 
 function Column({
@@ -104,14 +104,16 @@ export function Footer() {
                     {CONTACT.email}
                   </a>
                 </li>
-                <li>
-                  <a
-                    href={`tel:${CONTACT.phone.replace(/\s/g, "")}`}
-                    className="text-base font-medium text-cream/90 transition hover:text-magenta md:text-lg"
-                  >
-                    {CONTACT.phone}
-                  </a>
-                </li>
+                {CONTACT.phones.map((phone) => (
+                  <li key={phone}>
+                    <a
+                      href={`tel:${phone}`}
+                      className="text-base font-medium text-cream/90 transition hover:text-magenta md:text-lg"
+                    >
+                      {phone}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
 
