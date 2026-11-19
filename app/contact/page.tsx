@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 const CONTACT = {
   phones: ["0908529999", "0908532222"],
-  email: "hello@futureofwork.et",
+  email: "contact@afriworket.com",
   address: "Bole · Addis Ababa · Ethiopia",
 };
 

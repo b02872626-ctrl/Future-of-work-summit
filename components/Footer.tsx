@@ -29,7 +29,7 @@ const SOCIALS: Item[] = [
 ];
 
 const CONTACT = {
-  email: "hello@futureofwork.et",
+  email: "contact@afriworket.com",
   phones: ["0908529999", "0908532222"],
 };
 
