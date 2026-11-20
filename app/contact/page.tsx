@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactForm } from "./ContactForm";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 
@@ -68,9 +69,6 @@ function ContactRow({ icon, label, value, href }: { icon: React.ReactNode; label
     </div>
   );
 }
-
-const FIELD =
-  "w-full rounded-md border border-cream/15 bg-cream/5 px-4 py-3 text-sm text-cream placeholder:text-cream/40 outline-none transition focus:border-magenta focus:bg-cream/10 focus:ring-2 focus:ring-magenta/30 md:text-base";
 
 /* ============================================================
    Page
@@ -146,28 +144,7 @@ export default function ContactPage() {
               to you.
             </p>
 
-            <form className="mt-8 space-y-4" action="#" method="post">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <input type="text" name="first_name" placeholder="First name" className={FIELD} required />
-                <input type="text" name="last_name" placeholder="Last name" className={FIELD} required />
-              </div>
-              <input type="text" name="contact" placeholder="Email or phone number" className={FIELD} required />
-              <textarea
-                name="message"
-                placeholder="Write your message here…"
-                rows={6}
-                className={`${FIELD} resize-none`}
-                required
-              />
-
-              <button
-                type="submit"
-                className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-magenta px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.18em] text-cream shadow-glow transition hover:brightness-110 sm:w-auto md:text-base md:px-9 md:py-4"
-              >
-                Send message
-                <span aria-hidden="true">→</span>
-              </button>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

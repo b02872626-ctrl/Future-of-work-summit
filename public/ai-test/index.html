@@ -16,6 +16,9 @@
 <link rel="canonical" href="https://www.futureofworket.com/ai-test">
 <meta name="theme-color" content="#0B0711">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F000D0'/%3E%3Ccircle cx='32' cy='33' r='13' fill='white'/%3E%3Cellipse cx='32' cy='33' rx='22' ry='7' fill='none' stroke='white' stroke-width='3' transform='rotate(-18 32 33)'/%3E%3C/svg%3E">
+<!-- Vercel Web Analytics (served by Vercel on the deployed site) -->
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap" rel="stylesheet">
@@ -568,8 +571,26 @@ details.review summary { cursor: pointer; font-size: 20px; font-weight: 700; let
       params = params || {};
       if (typeof window.gtag === "function") window.gtag("event", name, params);
       if (Array.isArray(window.dataLayer)) window.dataLayer.push(Object.assign({ event: name }, params));
+      if (typeof window.va === "function") window.va("event", { name: name, data: params });
+      const detail = params.channel || params.level || "";
+      beacon({ t: "event", name: name, detail: String(detail) });
     } catch (e) { /* analytics is optional */ }
   }
+  /* Sends a hit to the site's own analytics (shown in /admin). */
+  function beacon(payload) {
+    try {
+      let vid = "";
+      try {
+        vid = localStorage.getItem("fow_vid") || "";
+        if (!vid) { vid = Math.random().toString(36).slice(2) + Date.now().toString(36); localStorage.setItem("fow_vid", vid); }
+      } catch (e) { /* private mode */ }
+      const body = JSON.stringify(Object.assign({ path: "/ai-test", vid: vid }, payload));
+      if (!(navigator.sendBeacon && navigator.sendBeacon("/api/track", new Blob([body], { type: "application/json" })))) {
+        fetch("/api/track", { method: "POST", body: body, keepalive: true, headers: { "Content-Type": "application/json" } }).catch(() => {});
+      }
+    } catch (e) { /* analytics is optional */ }
+  }
+  beacon({ t: "pageview", ref: document.referrer });
   function todayEAT() {
     try {
       return new Intl.DateTimeFormat("en-CA", { timeZone: "Africa/Addis_Ababa", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date());

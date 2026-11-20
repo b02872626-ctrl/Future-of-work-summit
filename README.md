@@ -70,3 +70,20 @@ Two folders are intentionally `.gitignored`:
 - **`assets/`** — raw font and image sources (≈ 29 MB).
 
 The web-optimised versions actually used by the site live in `public/`.
+
+## Analytics & admin dashboard
+
+- **Vercel Web Analytics** is on (`<Analytics />` in `components/Tracker.tsx`, plus a script tag in
+  `public/ai-test/index.html`). Visitors and page views appear in Vercel → Analytics after deploy.
+- **Own tracking** for the admin dashboard: `components/Tracker.tsx` sends page views and every link
+  click to `/api/track`. Links are sorted automatically into downloads, registration (Google Form),
+  phone, email, social, external and internal. Add `data-track="Label"` to a link to name it.
+  The AI test sends its own events (start, finish, share, register).
+- **Contact form** posts to `/api/contact`; messages appear in the dashboard and can be exported as CSV.
+- **Dashboard** at `/admin`, protected by `ADMIN_PASSWORD`.
+
+Setup in Vercel (once):
+
+1. Storage → add **Upstash for Redis** (free plan) and connect it to this project.
+2. Settings → Environment Variables → add `ADMIN_PASSWORD`.
+3. Redeploy.
